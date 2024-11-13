@@ -1,0 +1,11 @@
+{
+	"command": "node index.js",
+	"build_path": "/Users/prabhu-16357/Documents/StandAlone/LeadManager/NodeLead",
+	"stack": "node18",
+	"env_variables": {},
+	"memory": 256,
+	"scripts": {},
+	"raw": {},
+	"catalyst_auth": true,
+	"login_redirect": "/index.html"
+}
