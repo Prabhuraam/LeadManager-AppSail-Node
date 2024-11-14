@@ -1,8 +1,8 @@
 {
   "appsail": [
     {
-      "source": "/Users/prabhu-16357/Documents/StandAlone/LeadManager/NodeLead",
-      "name": "NodeLead"
+      "source": "./",
+      "name": "LeadManager"
     }
   ]
 }
