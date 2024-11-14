@@ -8,8 +8,8 @@ app.use(express.json());
 const HOST = "www.zohoapis.com";
 const AUTH_HOST = "https://accounts.zoho.com/oauth/v2/token";
 const PORT = 443;
-const CLIENTID = '1000.4P8NTL3C7I3W27WVAGW730BW1TEN2Z'; //Add your client ID
-const CLIENT_SECRET = 'b67029409f075cb154ff9b8ec2c35b2fe8d7d6a048'; //Add your client secret
+const CLIENTID = ''; //Add your client ID
+const CLIENT_SECRET = ''; //Add your client secret
 
 
 app.get("/generateToken", async (req, res) => {
