@@ -13,7 +13,7 @@ This project demonstrates how to build and deploy a Lead Manager application usi
 ## Prerequisites
 
 1. Install [Node.js](https://nodejs.org/) (Node.js 18 or later recommended).
-2. Install [Catalyst CLI](https://www.zoho.com/catalyst/help/cli/installation.html).
+2. Install [Catalyst CLI](https://docs.catalyst.zoho.com/en/getting-started/installing-catalyst-cli/#install-the-cli).
 3. Zoho API credentials (Client ID, Client Secret).
 
 ---
@@ -75,11 +75,40 @@ This project demonstrates how to build and deploy a Lead Manager application usi
     ```bash
     catalyst deploy
     ```
-2. Configure the **API Console** in Zoho to include your application domain:
-   - Update the **Homepage URL** and **Authorized Redirect URI** with your deployment domain.
-3. For local testing:
-   - Use `catalyst serve` to start the app locally.
-   - Update the **API Console**'s **Homepage URL** to `http://localhost:3001`.
+    Once successfully deployed, you will see a appsail URL generated in the terminal which you can use to access your appsail application.
+---
+
+##  Register the Client Application in Zoho API Console
+
+To enable authentication and communication with Zoho services, you need to register your client application in the **Zoho API Console**. This will generate the **Client ID** and **Client Secret**, which are required for generating and refreshing authentication tokens.
+
+### Steps to Register the Client Application:
+
+1. Go to the [Zoho API Console](https://api-console.zoho.com/) and click **Get Started**.
+2. Choose **Server-based Applications** as the client type.
+3. Enter the **Client Name** as `LeadManagerApp`.
+4. Provide the following details:
+   - **Homepage URL**: `{APP_DOMAIN}/index.html`
+   - **Authorized Redirect URIs**: `{APP_DOMAIN}/generateToken`
+
+   Replace `{APP_DOMAIN}` with the application domain for your Appsail URL.
+
+> **Note**: When testing locally, the Catalyst CLI serves the app on port `3001` by default.
+
+5. Click **Create** to complete the registration. The API Console will generate the **Client ID** and **Client Secret**.
+
+### Post-Registration Configuration:
+- Copy the **Client ID** and **Client Secret** and paste them into the corresponding placeholders in your project files:
+  - `index.js`
+  - `index.html`
+- These credentials are necessary for generating the initial Access Token and Refresh Token and for subsequent token refresh operations.
+
+
+### Adding Local Testing Configuration:
+For local testing, add the following **Authorized Redirect URI**: `{LOCALHOST_DOMAIN}/generateToken`
+
+
+
 
 ---
 
@@ -93,10 +122,6 @@ This project demonstrates how to build and deploy a Lead Manager application usi
    - Delete or update lead information
 
 ---
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 
