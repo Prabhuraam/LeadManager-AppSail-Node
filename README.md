@@ -114,7 +114,7 @@ To enable authentication and communication with Zoho services, you need to regis
 
 For local testing, add the following **Authorized Redirect URI**: `{LOCALHOST_DOMAIN}/generateToken`
 
-Replace `{LOCALHOST_DOMAIN}` with the localhost domain along with the  generated when you use the command 'catalyst serve'.
+Replace `{LOCALHOST_DOMAIN}` with the localhost domain generated when you use the command 'catalyst serve'.
 
 ---
 
