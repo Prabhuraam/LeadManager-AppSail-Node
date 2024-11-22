@@ -4,10 +4,11 @@ This project demonstrates how to build and deploy a Lead Manager application usi
 
 ## Features
 
-- User authentication via Zoho Catalyst
+- Embedded authentication via Zoho Catalyst
 - CRUD operations for leads in Zoho CRM
-- Integration with Zoho APIs for OAuth and CRM data handling
+- Integration with Zoho CRM APIs for data handling
 - Web-based client UI built with HTML, CSS, and JavaScript
+- Backend server built using Express framework
 
 ---
 
@@ -16,28 +17,29 @@ This project demonstrates how to build and deploy a Lead Manager application usi
 1. Install [Node.js](https://nodejs.org/) (Node.js 18 or later recommended).
 2. Install [Catalyst CLI](https://docs.catalyst.zoho.com/en/getting-started/installing-catalyst-cli/#install-the-cli).
 3. Zoho API credentials (Client ID, Client Secret).
+4. Zoho CRM account
 
 ---
 
 ## Project Setup
 
-1. Clone the repository or download the project files.
-2. Follow the **LeadManager Tutorial** up to Step 3 to create the project and set up the datastore table in Zoho Catalyst.
-3. Navigate to the project directory and initialize Catalyst:
-   ```bash
-   catalyst init
-   ```
-4. Select the **AppSail** feature and configure the project with:
-   - Programming Language: Node 18
-   - Application Name: `LeadManagerApp`
-   - Build Path: Current Project Directory
-5. Create a folder named `public` to store web client files.
+* Clone the repository or download the project files. You can refer to this help documentation for the same [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+* Follow the **LeadManager Tutorial** up to Step 3 to create the project and set up the datastore table in Zoho Catalyst. You can refer [here](https://docs.catalyst.zoho.com/en/tutorials/leadmanager/nodejs/create-project/) for the same.
+* Navigate to the project directory and initialize Catalyst:
+  ```bash
+  catalyst init
+  ```
+* Select the **AppSail** feature and configure the project with:
+  - Programming Language: Node 18
+  - Application Name: `LeadManagerApp`
+  - Build Path: Current Project Directory
+* Create a folder named `public` to store web client files.
 
 ---
 
 ## Backend Setup
 
-1. Initialize the Node.js application:
+1. Initialize the Node.js application in your appsail project folder:
 
    ```bash
    npm init
@@ -62,6 +64,11 @@ This project demonstrates how to build and deploy a Lead Manager application usi
      "login_redirect": "/index.html"
    }
    ```
+5. You can install the Express, Catalyst Node SDK and Axios packages in your appsail folder using the below command
+
+   ```bash
+   npm install express zcatalyst-sdk-node axios --save
+   ```
 
 ---
 
@@ -75,6 +82,7 @@ This project demonstrates how to build and deploy a Lead Manager application usi
 ## Deployment
 
 1. Deploy the project to Zoho Catalyst:
+
    ```bash
    catalyst deploy
    ```
@@ -85,9 +93,9 @@ This project demonstrates how to build and deploy a Lead Manager application usi
 
 ## Register the Client Application in Zoho API Console
 
-To enable authentication and communication with Zoho services, you need to register your client application in the **Zoho API Console**. This will generate the **Client ID** and **Client Secret**, which are required for generating and refreshing authentication tokens.
+To enable authentication and communication with Zoho CRM, you need to register your appsail application in the **Zoho API Console**. This will generate the **Client ID** and **Client Secret**, which are required for generating and refreshing authentication tokens.
 
-### Steps to Register the Client Application:
+### Steps to Register the Server-Ba Application:
 
 1. Go to the [Zoho API Console](https://api-console.zoho.com/) and click **Get Started**.
 2. Choose **Server-based Applications** as the client type.
@@ -114,7 +122,7 @@ To enable authentication and communication with Zoho services, you need to regis
 
 For local testing, add the following **Authorized Redirect URI**: `{LOCALHOST_DOMAIN}/generateToken`
 
-Replace `{LOCALHOST_DOMAIN}` with the localhost domain along with the  generated when you use the command 'catalyst serve'.
+Replace `{LOCALHOST_DOMAIN}` with the localhost domain generated when you use the command 'catalyst serve'.
 
 ---
 
